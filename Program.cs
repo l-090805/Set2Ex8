@@ -4,31 +4,25 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("introdu al catelea termen din sirul lui Fibonacci vrei sa il afli: ");
+            Console.WriteLine("al n-lea termen din sirul lui Fibonacci: ");
             int n = int.Parse(Console.ReadLine());
-            if(n <= 0)
-            {
-                Console.WriteLine("Introduceti un numar pozitiv");
-                return;
-            }
 
             Console.WriteLine($"Al {n}-lea termen din sirul lui Fibonacci este: {Fib(n)}");
+
+
         }
         static int Fib(int n)
         {
-            if (n == 1) return 0;
-            if (n == 2) return 1;
-
-            int a = 0;
-            int b = 1;
-            int c = 0;
-            for (int i = 3; i <= n; i++)
+            int f1 = 0;
+            int f2 = 1;
+            int fn = 0;
+            for(int i = 2; i < n; i++)
             {
-                c = a + b;
-                a = b;
-                b= c;
+                fn = f1 + f2;
+                f1 = f2;
+                f2 = fn;
             }
-            return c;
+            return fn;
         }
     }
 }
